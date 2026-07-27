@@ -118,6 +118,8 @@ Progress: 4136 / 175326 (2.36%)^C
 
 We can see that this website uses PHP at the backend (screenshot 01) so I chose to look for PHP file types. The first result I got is login.php.
 
+![Screenshot 01 — website shows PHP](screenshots/01_website__php.png)
+
 Screenshot 02 shows a login page. I used a curl command to fetch the page and save cookies into cookies.txt for the next command.
 
 ```
@@ -157,6 +159,8 @@ curl -c cookies.txt http://10.129.244.27/login.php
     </form>
 ```
 
+![Screenshot 02 — login page](screenshots/02_login.png)
+
 ```
 cat cookies.txt
 ```
@@ -182,6 +186,8 @@ curl -c cookies.txt -b cookies.txt -L -d "Username=admin&Password=rKXM59ESxesUFH
 We found a flag by using the correct credentials: `admin:rKXM59ESxesUFHAd`.
 
 Flag: `c7110277ac44d78b6a9fff2232434d16` (screenshot: flag.png).
+
+![Flag screenshot](screenshots/flag.png)
 
 ## Lessons learned
 
