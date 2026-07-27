@@ -168,7 +168,7 @@ cat cookies.txt
 Last command to post a Username, Password and submit it (using -L for redirecting):
 
 ```
--b -c cookies.txt -b cookies.txt -L -d "Username=admin&Password=rKXM59ESxesUFHAd&Submit=Login" http://10.129.244.27/login.php | grep flag
+curl -c cookies.txt -b cookies.txt -L -d "Username=admin&Password=rKXM59ESxesUFHAd&Submit=Login" http://10.129.244.27/login.php | grep flag
 ```
 
 ```
