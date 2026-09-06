@@ -64,11 +64,11 @@ Progress: 10571 / 87663 (12.06%)^C
 - Did not find any useful directories during this run.
 - The web application presents a login form (see screenshots).
 
-Screenshots (placeholders)
-- ![Screenshot 01 — login input with payload](screenshots/01_login.png)  (close-up showing `admin' #` username)
-- ![Screenshot 02 — flag page](screenshots/02_flag.png)  (congratulations / flag)
-- ![Screenshot 03 — full login page](screenshots/03_login_full.png)  (full view)
-- ![Screenshot 04 — sqlmap output](screenshots/04_sqlmap.png)  (sqlmap confirms injection)
+## Screenshots
+- ![01_login.png](screenshots/01_login.png) — Image 01: close-up of login input showing injected username (e.g., `admin' #`)
+- ![02_flag.png](screenshots/02_flag.png) — Image 02: success page showing the retrieved flag
+- ![03_login_full.png](screenshots/03_login_full.png) — Image 03: full view of the login page
+- ![04_sqlmap.png](screenshots/04_sqlmap.png) — Image 04: sqlmap terminal output confirming injection
 
 ---
 
@@ -78,13 +78,13 @@ Step-by-step, reproducible commands that lead to initial access. Include exact c
 
 1. Finding the vector
    - While inspecting web page, GET requests had no cookies and no error message was shown when trying to manually enter credentials.
-   - Screenshot: login.png
+   - ![03_login_full.png](screenshots/03_login_full.png)
 
 2. Proof-of-concept / exploit attempt
    - I tried testing login and password form for basic SQL injections:
      - `admin' or '1'='1` and then put any password. As a result got redirected to a page with flag.
-   - Screenshot: credentials.png
-   - Screenshot: flag.png
+   - ![01_login.png](screenshots/01_login.png)
+   - ![02_flag.png](screenshots/02_flag.png)
 
 Example escalation route:
 
@@ -106,7 +106,7 @@ Parameter: username (POST)
     Payload: username=admin' AND (SELECT 8435 FROM (SELECT(SLEEP(5)))urEU) AND 'zZQY'='zZQY&password=pass
 ```
 
-Screenshot: sqlmap.png
+![04_sqlmap.png](screenshots/04_sqlmap.png)
 
 ---
 
