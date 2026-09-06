@@ -65,7 +65,7 @@ Progress: 10571 / 87663 (12.06%)^C
 - The web application presents a login form (see screenshots).
 
 ## Screenshots
-- ![01_login.png](screenshots/01_login.png) — Image 01: close-up of login input showing injected username (e.g., `admin' #`)
+-  — Image 01: close-up of login input showing injected username (e.g., `admin' #`)
 - ![02_flag.png](screenshots/02_flag.png) — Image 02: success page showing the retrieved flag
 - ![03_login_full.png](screenshots/03_login_full.png) — Image 03: full view of the login page
 - ![04_sqlmap.png](screenshots/04_sqlmap.png) — Image 04: sqlmap terminal output confirming injection
@@ -78,13 +78,14 @@ Step-by-step, reproducible commands that lead to initial access. Include exact c
 
 1. Finding the vector
    - While inspecting web page, GET requests had no cookies and no error message was shown when trying to manually enter credentials.
-   - ![03_login_full.png](screenshots/03_login_full.png)
+   <img width="1440" height="713" alt="Login" src="https://github.com/user-attachments/assets/1300e6a7-0ae2-4b36-b9eb-4a6cec4944ef" />
+
 
 2. Proof-of-concept / exploit attempt
    - I tried testing login and password form for basic SQL injections:
      - `admin' or '1'='1` and then put any password. As a result got redirected to a page with flag.
-   - ![01_login.png](screenshots/01_login.png)
-   - ![02_flag.png](screenshots/02_flag.png)
+   <img width="582" height="518" alt="Credentials" src="https://github.com/user-attachments/assets/0219ccf4-b0e0-4e67-b083-b2b65a7902d3" />
+   <img width="720" height="225" alt="flag" src="https://github.com/user-attachments/assets/dc2aab30-ea6c-441a-b2c6-9af51fc1aa1a" />
 
 Example escalation route:
 
@@ -106,7 +107,7 @@ Parameter: username (POST)
     Payload: username=admin' AND (SELECT 8435 FROM (SELECT(SLEEP(5)))urEU) AND 'zZQY'='zZQY&password=pass
 ```
 
-![04_sqlmap.png](screenshots/04_sqlmap.png)
+<img width="676" height="470" alt="sqlmap" src="https://github.com/user-attachments/assets/f9128755-82ca-41ba-b9fa-789cdd404fd3" />
 
 ---
 
